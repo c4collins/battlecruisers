@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/c4collins/battlecruisers#readme",
   "devDependencies": {
+    "angular": "^1.5.3",
     "event-stream": "^3.3.2",
     "express": "^4.13.4",
     "gulp": "^3.9.1",
@@ -39,5 +40,8 @@
     "path": "^0.12.7",
     "rework-inline": "^0.2.0",
     "tiny-lr": "^0.2.1"
+  },
+  "dependencies": {
+    "express": "^4.13.4"
   }
 }

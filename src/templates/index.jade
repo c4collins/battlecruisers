@@ -1,0 +1,14 @@
+doctype html
+html
+    head
+        link(rel="stylesheet" type="text/css" href="static/stylesheets/main.css")
+    body(ng-app="battlecruisers")
+        h1 BattleCruisers
+
+        section(ng-controller="ButtonController as btnCtrl")
+            ul
+                li(ng-repeat="button in btnCtrl.buttons" ng-show="button.active")
+                    button(class="{{ button.class }}" ng-click="button.action()") {{ button.text }}
+
+        script(type="text/javascript" src="static/libs/angular/angular.min.js")
+        script(type="text/javascript" src="static/scripts/all.min.js")

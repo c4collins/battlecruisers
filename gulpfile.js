@@ -31,7 +31,7 @@ gulp.task('js', function() {
         gulp.src('src/assets/scripts/*.coffee').
           pipe(coffee()), 
         gulp.src('src/assets/scripts/*.js')).
-    pipe( uglify() ).
+    // pipe( uglify() ). // Turn off to de-uglify
     pipe( concat('all.min.js')).
     pipe( gulp.dest('dist/assets/scripts/')).
     pipe( livereload( server ));
@@ -46,11 +46,11 @@ gulp.task('templates', function() {
     pipe( livereload( server ));
 });
  
-gulp.task('express', function() {
-  app.use(express.static(path.resolve('./dist')));
-  app.listen(1337);
-  gutil.log('Listening on port: 1337');
-});
+// gulp.task('express', function() {
+//   app.use(express.static(path.resolve('./dist')));
+//   app.listen(1337);
+//   gutil.log('Listening on port: 1337');
+// });
  
 gulp.task('watch', function () {
   server.listen(35729, function (err) {
@@ -70,4 +70,4 @@ gulp.task('watch', function () {
 });
  
 // Default Task
-gulp.task('default', ['js','css','templates','express','watch']);
+gulp.task('default', ['js','css','templates'/*,'express'*/,'watch']);
