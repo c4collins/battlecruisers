@@ -14,7 +14,10 @@ var gulp        = require('gulp'),
     marked      = require('marked'), // For :markdown filter in jade
     path        = require('path'),
     server      = tinylr(),
-    es          = require('event-stream');
+    es          = require('event-stream')
+    // Routes
+    routes      = require('./routes'),
+    api         = require('./routes/api');
  
  
 // --- Basic Tasks ---
@@ -46,11 +49,23 @@ gulp.task('templates', function() {
     pipe( livereload( server ));
 });
  
-// gulp.task('express', function() {
-//   app.use(express.static(path.resolve('./dist')));
-//   app.listen(1337);
-//   gutil.log('Listening on port: 1337');
-// });
+gulp.task('express', function() {
+  app.set('views', __dirname + '/src/templates');
+  app.set('view engine', 'jade');
+  app.use('/static', express.static(path.join(__dirname, 'dist/assets')));
+  app.use(express.static(path.resolve('./dist/assets')));
+  // serve index and view partials
+  app.get('/', routes.index);
+  app.get('/partials/:name', routes.partials);
+
+  // JSON API
+  app.get('/api/name', api.name);
+
+  // redirect all others to the index (HTML5 history)
+  app.get('*', routes.index);
+  app.listen(3000);
+  gutil.log('Listening on port: 3000');
+});
  
 gulp.task('watch', function () {
   server.listen(35729, function (err) {
@@ -70,4 +85,4 @@ gulp.task('watch', function () {
 });
  
 // Default Task
-gulp.task('default', ['js','css','templates'/*,'express'*/,'watch']);
+gulp.task('default', ['js','css','templates','express','watch']);

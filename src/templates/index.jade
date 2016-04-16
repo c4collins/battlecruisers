@@ -1,14 +1,44 @@
 doctype html
 html
     head
-        link(rel="stylesheet" type="text/css" href="static/stylesheets/main.css")
-    body(ng-app="battlecruisers")
-        h1 BattleCruisers
 
-        section(ng-controller="ButtonController as btnCtrl")
-            ul
-                li(ng-repeat="button in btnCtrl.buttons" ng-show="button.active")
-                    button(class="{{ button.class }}" ng-click="button.action()") {{ button.text }}
+        link(rel="stylesheet" type="text/css" href="static/libs/html5-kickstart/css/kickstart.css" media="all")
+        link(rel="stylesheet" type="text/css" href="static/libs/html5-kickstart/style.css" media="all")
+        link(rel="stylesheet" type="text/css" href="static/stylesheets/main.css")
+        
+        script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+        script(type="text/javascript" src="static/libs/html5-kickstart/js/kickstart.js")
+
+    body(ng-app="battlecruisers" ng-controller="GameController as game")
+        h1 BattleCruisers
+            span(ng-show="game.turn_number > 0") - Turn: {{ game.turn_number }}
+
+        section.col_12
+            div(ng-repeat="button in game.buttons" ng-show="button.active")
+                button(class="btn btn-{{ button.class }}" ng-click="game.button_actions[button.id](button.params)") {{ button.text }}
+
+        section.col_4
+            div(ng-repeat="player in game.players" ng-class="{                     'red-alert': player.status == 'RED ALERT',                    'eliminated': player.status == 'ELIMINATED' }" ng-disabled="button.disabled == true")
+                h2 Player {{ player.id }} 
+                    span(ng-show="player.winner").
+                         - WINNER!
+                h3 {{ player.tokens }} Tokens
+                p Cards:
+                div
+                    strong Recovery Zone: 
+                    p(ng-repeat="card in player.recovery_zone") {{ card.name }}
+                div 
+                    strong Cards in hand: 
+                    {{ player.hand.length }}
+                div
+                    strong Cards in discard: 
+                    {{ player.discard_pile.length }}
+
+        section.col_8
+            div(ng-repeat="(id, card) in game.cardsInPlay.cardsPlayed" ng-show="game.cardsInPlay.show")
+                h4 Player {{ id }} played 
+                    strong {{ card.id }} : {{ card.name }}
+
 
         script(type="text/javascript" src="static/libs/angular/angular.min.js")
         script(type="text/javascript" src="static/scripts/all.min.js")

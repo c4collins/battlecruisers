@@ -1,0 +1,27 @@
+{
+    "new_game": {
+        "id": "new_game",
+        "params": "3",
+        "text": "Start New Game",
+        "class": "new-game",
+        "active": "true"
+    },
+    "start_game":{
+        "id": "start_game",
+        "params": "",
+        "text": "Start Game Play",
+        "class": "play"
+    },
+    "next_turn":{
+        "id": "next_turn",
+        "params": "",
+        "text": "Next Turn",
+        "class": "next-turn"
+    },
+    "reset_game":{
+        "id": "reset_game",
+        "params": "",
+        "text": "Reset Game",
+        "class": "reset"
+    }
+}

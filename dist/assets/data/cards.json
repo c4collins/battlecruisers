@@ -1,0 +1,134 @@
+{
+    "1":{
+            "id":"1",
+            "name":"Spy Drone"
+        },
+    "2":{
+            "id":"2",
+            "name":"Tech Officer"
+        },
+    "3":{
+            "id":"3",
+            "name":"Shields"
+        },
+    "4":{
+            "id":"4",
+            "name":"Cloaking Device"
+        },
+    "5":{
+            "id":"5",
+            "name":"Navigator"
+        },
+    "6":{
+            "id":"6",
+            "name":"Decoy"
+        },
+    "7":{
+            "id":"7",
+            "name":"Security Chief"
+        },
+    "8":{
+            "id":"8",
+            "name":"Evasive Action"
+        },
+    "9":{
+            "id":"9",
+            "name":"Disrupter Ray"
+        },
+    "11":{
+            "id":"11",
+            "name":"Reckless Pilot"
+        },
+    "12":{
+            "id":"12",
+            "name":"Negotiator"
+        },
+    "13":{
+            "id":"13",
+            "name":"Captain"
+        },
+    "15":{
+            "id":"15",
+            "name":"Pod Bay Doors"
+        },
+    "16":{
+            "id":"16",
+            "name":"Repair Crew"
+        },
+    "17":{
+            "id":"17",
+            "name":"Ambassador"
+        },
+    "19":{
+            "id":"19",
+            "name":"Combat Tactics"
+        },
+    "20":{
+            "id":"20",
+            "name":"Armor Plating"
+        },
+    "22":{
+            "id":"22",
+            "name":"Special Ops"
+        },
+    "23":{
+            "id":"23",
+            "name":"Targeting CPU"
+        },
+    "28":{
+            "id":"28",
+            "name":"Reconstruction"
+        },
+    "29":{
+            "id":"29",
+            "name":"Attack Bots"
+        },
+    "30":{
+            "id":"30",
+            "name":"Computer Virus"
+        },
+    "31":{
+            "id":"31",
+            "name":"Laser Cannons"
+        },
+    "32":{
+            "id":"32",
+            "name":"Pirate Raid"
+        },
+    "33":{
+            "id":"33",
+            "name":"Attack Wing"
+        },
+    "34":{
+            "id":"34",
+            "name":"Precision Strike"
+        },
+    "37":{
+            "id":"37",
+            "name":"Supply Convoy"
+        },
+    "38":{
+            "id":"38",
+            "name":"Tactical Nuke"
+        },
+    "39":{
+            "id":"39",
+            "name":"Salvage"
+        },
+    "40":{
+            "id":"40",
+            "name":"Electropulse"
+        },
+    "43":{
+            "id":"43",
+            "name":"Escape Pod"
+        },
+    "44":{
+            "id":"44",
+            "name":"Bureaucrat"
+        },
+    "45":{
+            "id":"45",
+            "name":"Time Warp"
+        }
+}
