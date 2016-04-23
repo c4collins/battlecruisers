@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/">
+    <title>BattleCruisers - v0.0.0</title>
+    <link rel="stylesheet" type="text/css" href="static/libs/html5-kickstart/css/kickstart.css" media="all">
+    <link rel="stylesheet" type="text/css" href="static/libs/html5-kickstart/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="static/stylesheets/main.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="static/libs/html5-kickstart/js/kickstart.js"></script>
+    <script type="text/javascript" src="static/libs/angular/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    <script type="text/javascript" src="static/scripts/all.min.js"></script>
+  </head>
+  <body ng-app="battlecruisers" ng-controller="GameController as game">
+    <game-header></game-header>
+    <game-control-buttons></game-control-buttons>
+    <play-area></play-area>
+    <player-info></player-info>
+  </body>
+</html>

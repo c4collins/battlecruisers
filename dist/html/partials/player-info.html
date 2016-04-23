@@ -1,0 +1,16 @@
+
+<section class="col_12">
+  <div ng-repeat="player in playerService.players" ng-class="{ 'red-alert': player.status == 'RED ALERT', 'eliminated': player.status == 'ELIMINATED' }" ng-disabled="button.disabled == true" class="col_4">
+    <h5>Player {{ player.id }} <span ng-show="player.winner">- WINNER!</span></h5>
+    <h6>{{ player.tokens }} Tokens</h6>
+    <p>Cards:</p>
+    <div><strong>In Play: </strong>
+      <p ng-repeat="card in player.cards.in_play">{{ card.name }}</p>
+    </div>
+    <div><strong>Recovery Zone: </strong>
+      <single-card ng-repeat="card in player.cards.recovery_zone"> </single-card>
+    </div>
+    <div>Cards in hand:<strong>{{ player.cards.hand.length }}</strong></div>
+    <div>Cards in discard: <strong>{{ player.cards.discard_pile.length }}</strong></div>
+  </div>
+</section>

@@ -1,7 +1,7 @@
 {
     "new_game": {
         "id": "new_game",
-        "params": "3",
+        "params": [2, 1],
         "text": "Start New Game",
         "class": "new-game",
         "active": "true"

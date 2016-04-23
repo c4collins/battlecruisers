@@ -1,0 +1,10 @@
+
+<div class="single-card">
+  <p>Name: {{ card.name }}</p>
+  <p>Number: {{ card.id }}</p><i ng-repeat="icon in card.icons" ng-class="{'fa-users':icon == 'team', 'fa-th-list':icon == 'ammo'}" class="card-icon fa"></i>
+  <h5>Effects</h5>
+  <h6>Main</h6>
+  <p>{{ card.effect.main }}</p>
+  <h6>Conflict</h6>
+  <p>{{ card.effect.conflict }}</p>
+</div>

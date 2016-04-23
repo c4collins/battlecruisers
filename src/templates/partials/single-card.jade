@@ -1,0 +1,10 @@
+.single-card
+    p Name: {{ card.name }}
+    p Number: {{ card.id }}
+    i(ng-repeat="icon in card.icons" class="card-icon fa" ng-class="{'fa-users':icon == 'team', 'fa-th-list':icon == 'ammo'}")
+
+    h5 Effects
+    h6 Main
+    p {{ card.effect.main }}
+    h6 Conflict
+    p {{ card.effect.conflict }}

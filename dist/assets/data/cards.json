@@ -69,7 +69,12 @@
         },
     "22":{
             "id":"22",
-            "name":"Special Ops"
+            "name":"Special Ops",
+            "effect":{
+                "main": "Take 1* from each opponent unless you are the player with the single most *",
+                "conflict": "No effect"
+            },
+            "icons": ["team", "ammo"]
         },
     "23":{
             "id":"23",

@@ -41,11 +41,11 @@ gulp.task('js', function() {
 });
  
 gulp.task('templates', function() {
-  return gulp.src('src/*.jade').
+  return gulp.src(['src/templates/*.jade', 'src/templates/**/*.jade']).
     pipe(jade({
       pretty: true
     })).
-    pipe(gulp.dest('dist/')).
+    pipe(gulp.dest('dist/html')).
     pipe( livereload( server ));
 });
  
