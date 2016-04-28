@@ -23,8 +23,6 @@ GameController = ($http, cardService, playerService) ->
         game.turn_number = 0
         game.over = false
 
-        # game.players = {}
-
         for id in [1..human_players]
             player = playerService.createNewPlayer(id, 'human')
             player.cards = cardService.getHand()
@@ -48,7 +46,6 @@ GameController = ($http, cardService, playerService) ->
         console.warn 'RESETTING GAME!'
         game.turn_number = 0
         playerService.reset()
-        # game.players = playerService.players
         cardService.resetCardsInPlay()
         game.cardsInPlay = cardService.cardsInPlay
         game.cards = {}
@@ -58,7 +55,6 @@ GameController = ($http, cardService, playerService) ->
             cardService.updateDeck(data)
 
         for id, button of game.buttons
-            # console.log(button)
             if button.id in ['new_game']
                 button.active = true
             else
@@ -69,7 +65,6 @@ GameController = ($http, cardService, playerService) ->
         game.turn()
         game.buttons.next_turn.active = true
 
-    # game.cardsInPlay = cardService.cardsInPlay
     game.turn = () ->
         if game.over
             game.buttons.next_turn.disabled = true

@@ -1,10 +1,19 @@
+-var icon_classes = "{"
+-icon_classes += " 'icon-user':icon == 'team'"
+-icon_classes += ",'icon-th-list':icon == 'ammo'"
+-icon_classes += ",'fa-rmb':icon == 'circuit'"
+-icon_classes += ",'fa-times-circle':icon == 'blocker'"
+-icon_classes += " }"
 .single-card
-    p Name: {{ card.name }}
-    p Number: {{ card.id }}
-    i(ng-repeat="icon in card.icons" class="card-icon fa" ng-class="{'fa-users':icon == 'team', 'fa-th-list':icon == 'ammo'}")
-
-    h5 Effects
-    h6 Main
-    p {{ card.effect.main }}
-    h6 Conflict
-    p {{ card.effect.conflict }}
+    .card-upper
+        .card-icons
+            i(ng-repeat="icon in card.icons" class="card-icon icon" ng-class=icon_classes)
+        p.number {{ card.id }}
+        p.name {{ card.name }}
+    img(src="{{ card.images.main }}")
+    .card-lower
+        .card-effects
+            p.main-text {{ card.effect.main }}
+        .card-effects
+            p.clash-title Clash
+            p.clash-text {{ card.effect.conflict }} 

@@ -1,10 +1,17 @@
 
 <div class="single-card">
-  <p>Name: {{ card.name }}</p>
-  <p>Number: {{ card.id }}</p><i ng-repeat="icon in card.icons" ng-class="{'fa-users':icon == 'team', 'fa-th-list':icon == 'ammo'}" class="card-icon fa"></i>
-  <h5>Effects</h5>
-  <h6>Main</h6>
-  <p>{{ card.effect.main }}</p>
-  <h6>Conflict</h6>
-  <p>{{ card.effect.conflict }}</p>
+  <div class="card-upper">
+    <div class="card-icons"><i ng-repeat="icon in card.icons" ng-class="{ 'icon-user':icon == 'team','icon-th-list':icon == 'ammo','fa-rmb':icon == 'circuit','fa-times-circle':icon == 'blocker' }" class="card-icon icon"></i></div>
+    <p class="number">{{ card.id }}</p>
+    <p class="name">{{ card.name }}</p>
+  </div><img src="{{ card.images.main }}"/>
+  <div class="card-lower">
+    <div class="card-effects">
+      <p class="main-text">{{ card.effect.main }}</p>
+    </div>
+    <div class="card-effects">
+      <p class="clash-title">Clash</p>
+      <p class="clash-text">{{ card.effect.conflict }} </p>
+    </div>
+  </div>
 </div>

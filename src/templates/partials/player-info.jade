@@ -1,18 +1,39 @@
 section.col_12
-    div(ng-repeat="player in playerService.players" class="col_4" ng-class="{ 'red-alert': player.status == 'RED ALERT', 'eliminated': player.status == 'ELIMINATED' }" ng-disabled="button.disabled == true")
-        h5 Player {{ player.id }} 
-            span(ng-show="player.winner").
-                 - WINNER!
-        h6 {{ player.tokens }} Tokens
-        p Cards:
-        div
-            strong In Play: 
-            p(ng-repeat="card in player.cards.in_play") {{ card.name }}
-       
-        div
-            strong Recovery Zone: 
-            single-card(ng-repeat="card in player.cards.recovery_zone") 
-        div Cards in hand:
-            strong {{ player.cards.hand.length }}
-        div Cards in discard: 
-            strong {{ player.cards.discard_pile.length }}
+    div(ng-repeat="player in playerService.players" class="col_4" ng-class="{ 'red-alert': player.status == 'RED ALERT', 'eliminated': player.status == 'ELIMINATED' }")
+        div(ng-show="player.type == 'ai'")
+            h5 Player {{ player.id }} 
+                span(ng-show="player.winner").
+                     - WINNER!
+            h6 {{ player.tokens }} Tokens
+            p Cards:
+            div
+                strong In Play: 
+                p(ng-repeat="card in player.cards.in_play") {{ card.name }}
+           
+            div
+                strong Recovery Zone: 
+                single-card(ng-repeat="card in player.cards.recovery_zone") 
+            div Cards in hand:
+                strong {{ player.cards.hand.length }}
+            div Cards in discard: 
+                strong {{ player.cards.discard_pile.length }}
+            
+        div(ng-show="player.type == 'human'")
+            h5 Player {{ player.id }} 
+                span(ng-show="player.winner").
+                     - WINNER!
+            h6 {{ player.tokens }} Tokens
+            p Cards:
+            div
+                strong {{ player.cards.discard_pile.hand }} Hand: 
+                single-card(ng-repeat="card in player.cards.hand") 
+            div
+                strong {{ player.cards.discard_pile.in_play }} In Play: 
+                single-card(ng-repeat="card in player.cards.in_play") 
+            div
+                strong {{ player.cards.recovery_zone.length }} Recovery Zone: 
+                single-card(ng-repeat="card in player.cards.recovery_zone")
+            div
+                strong {{ player.cards.discard_pile.length }} Discard Pile: 
+                single-card(ng-repeat="card in player.cards.discard_pile") 
+        

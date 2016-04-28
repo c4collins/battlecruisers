@@ -9,7 +9,12 @@
         },
     "3":{
             "id":"3",
-            "name":"Shields"
+            "name":"Shields",
+            "effect":{
+                "main": "You ignore opponents' Main effects this round and next round.  If this is your only card at the end of a round, discard it.",
+                "conflict": "No effect."
+            },
+            "icons": ["circuit", "blocker"]
         },
     "4":{
             "id":"4",
@@ -37,7 +42,12 @@
         },
     "11":{
             "id":"11",
-            "name":"Reckless Pilot"
+            "name":"Reckless Pilot",
+            "effect":{
+                "main": "Discard 1 card.  Gain 4*.",
+                "conflict": "Discard this card or one card from your hand."
+            },
+            "icons": ["team"]
         },
     "12":{
             "id":"12",
@@ -45,7 +55,12 @@
         },
     "13":{
             "id":"13",
-            "name":"Captain"
+            "name":"Captain",
+            "effect":{
+                "main": "Gain 3*.",
+                "conflict": "Gain 3*, then lose 1* for every player who Clashed with this card, including yourself."
+            },
+            "icons": ["team", "ammo"]
         },
     "15":{
             "id":"15",
@@ -71,7 +86,7 @@
             "id":"22",
             "name":"Special Ops",
             "effect":{
-                "main": "Take 1* from each opponent unless you are the player with the single most *",
+                "main": "Take 1* from each opponent unless you are the player with the single most *.",
                 "conflict": "No effect"
             },
             "icons": ["team", "ammo"]
@@ -94,7 +109,12 @@
         },
     "31":{
             "id":"31",
-            "name":"Laser Cannons"
+            "name":"Laser Cannons",
+            "effect":{
+                "main": "Each opponent discards one card.",
+                "conflict": "Discard one card."
+            },
+            "icons": ["ammo"]
         },
     "32":{
             "id":"32",
@@ -126,7 +146,12 @@
         },
     "43":{
             "id":"43",
-            "name":"Escape Pod"
+            "name":"Escape Pod",
+            "effect":{
+                "main": "Gain 1*. If you have no cards in your hand, return up to three cards of your choice from your discard pile to your hand.",
+                "conflict": "Discard this card."
+            },
+            "icons": ["circuit", "team"]
         },
     "44":{
             "id":"44",
