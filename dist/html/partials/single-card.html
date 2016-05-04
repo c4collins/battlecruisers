@@ -1,5 +1,5 @@
 
-<div class="single-card">
+<div ng-class="{ 'active-card': active_card }" class="single-card">
   <div class="card-upper">
     <div class="card-icons"><i ng-repeat="icon in card.icons" ng-class="{ 'icon-user':icon == 'team','icon-th-list':icon == 'ammo','fa-rmb':icon == 'circuit','fa-times-circle':icon == 'blocker' }" class="card-icon icon"></i></div>
     <p class="number">{{ card.id }}</p>

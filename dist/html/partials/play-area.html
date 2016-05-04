@@ -1,6 +1,4 @@
 
 <section class="col_12">
-  <div ng-repeat="(id, card) in cardService.cardsInPlay.cardsPlayed" ng-show="cardService.cardsInPlay.show">
-    <h4>Player {{ id }} played <strong>{{ card.id }} : {{ card.name }}</strong></h4>
-  </div>
+  <single-card ng-repeat="card in player.cards.recovery_zone" ng-show="cardService.cardsInPlay.show"> </single-card>
 </section>

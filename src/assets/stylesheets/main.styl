@@ -7,17 +7,18 @@
 .eliminated
     background-color: silver
     border: 10px solid gray
-
 .single-card
     display: inline-block
-    width: 200px
-    // height: 279px
-    // margin: -160px
+    width: 150px
+    position: relative
     padding: 7px 7px 5px
     background-color: black
     border-radius: 15px
     border: 1px solid white
     color: white
+    z-index: 1
+    &.active-card
+        z-index: 2
     .card-icons
         float: left
         i
@@ -39,12 +40,15 @@
         text-align: center
     img
         clear: both
-        height: 170px
+        height: 10px
         width: 100%
         margin-bottom: 10px
+        background-color: silver
+
     .card-effects
         border: 1px solid silver
         margin-bottom: 10px
+        font-size: 0.8rem
         p
             margin: 3px
             &.clash-title
@@ -55,6 +59,7 @@
                 clear: right
                 text-align: right
                 color: red
+                font-size: 0.6rem
 .card-icon
     background-color: green
     border: 2px solid black
@@ -65,3 +70,12 @@
 
     &[class*="icon-"]:before
         margin: 25% 20%
+
+.local-play-area
+    background-color: lightgreen
+    border: solid black 4px
+    border-radius: 20px
+.ai-play-area
+    background-color: lightpink
+    border: solid black 4px
+    border-radius: 20px

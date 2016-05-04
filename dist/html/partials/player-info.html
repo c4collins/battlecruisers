@@ -1,35 +1,34 @@
 
 <section class="col_12">
-  <div ng-repeat="player in playerService.players" ng-class="{ 'red-alert': player.status == 'RED ALERT', 'eliminated': player.status == 'ELIMINATED' }" class="col_4">
-    <div ng-show="player.type == 'ai'">
+  <div ng-repeat="player in playerService.players">
+    <div ng-show="player.type == 'ai'" class="col_3">
       <h5>Player {{ player.id }} <span ng-show="player.winner">- WINNER!</span></h5>
       <h6>{{ player.tokens }} Tokens</h6>
-      <p>Cards:</p>
-      <div><strong>In Play: </strong>
-        <p ng-repeat="card in player.cards.in_play">{{ card.name }}</p>
-      </div>
-      <div><strong>Recovery Zone: </strong>
-        <single-card ng-repeat="card in player.cards.recovery_zone"> </single-card>
-      </div>
-      <div>Cards in hand:<strong>{{ player.cards.hand.length }}</strong></div>
-      <div>Cards in discard: <strong>{{ player.cards.discard_pile.length }}</strong></div>
-    </div>
-    <div ng-show="player.type == 'human'">
-      <h5>Player {{ player.id }} <span ng-show="player.winner">- WINNER!</span></h5>
-      <h6>{{ player.tokens }} Tokens</h6>
-      <p>Cards:</p>
-      <div><strong>{{ player.cards.discard_pile.hand }} Hand: </strong>
-        <single-card ng-repeat="card in player.cards.hand"> </single-card>
-      </div>
-      <div><strong>{{ player.cards.discard_pile.in_play }} In Play: </strong>
+      <div ng-class="{ 'red-alert': player.status == 'RED ALERT', 'eliminated': player.status == 'ELIMINATED' }" class="ai-play-area">
+        <h5>In Play: </h5>
         <single-card ng-repeat="card in player.cards.in_play"> </single-card>
+        <h5>Recovery Zone: </h5>
+        <single-card ng-repeat="card in player.cards.recovery_zone"> </single-card>
+        <h5>Cards in hand:<strong>{{ player.cards.hand.length }}</strong></h5>
+        <h5>Cards in discard: <strong>{{ player.cards.discard_pile.length }}</strong></h5>
       </div>
-      <div><strong>{{ player.cards.recovery_zone.length }} Recovery Zone: </strong>
-        <single-card ng-repeat="card in player.cards.recovery_zone"></single-card>
+    </div>
+    <div ng-show="player.type == 'human'" class="col_6">
+      <h5>Player {{ player.id }} <span ng-show="player.winner">- WINNER!</span></h5>
+      <h6>{{ player.tokens }} Tokens</h6>
+      <div ng-class="{ 'red-alert': player.status == 'RED ALERT', 'eliminated': player.status == 'ELIMINATED' }" class="local-play-area">
+        <div class="in-play">
+          <h5>In Play:</h5>
+          <single-card ng-repeat="card in player.cards.in_play"></single-card>
+          <h5>Recovery Zone:</h5>
+          <single-card ng-repeat="card in player.cards.recovery_zone"></single-card>
+          <h5>Discard Pile: 
+            <ng-pluralize count="player.cards.discard_pile.length" when="{ '0': 'No cards', 'one': '1 card', 'other': '{} cards' }"></ng-pluralize>
+          </h5>
+        </div>
       </div>
-      <div><strong>{{ player.cards.discard_pile.length }} Discard Pile: </strong>
-        <single-card ng-repeat="card in player.cards.discard_pile"> </single-card>
-      </div>
+      <h5>Hand: </h5>
+      <single-card ng-repeat="card in player.cards.hand" ng-mouseenter="active_card = true" ng-mouseleave="active_card = false" ng-click="game.userCardClick(player.id, $index, 'hand', 'play_card')" class="col_{{ 12 /  player.cards.hand.length }}"></single-card>
     </div>
   </div>
 </section>

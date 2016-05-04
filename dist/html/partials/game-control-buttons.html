@@ -1,6 +1,6 @@
 
 <section class="col_12">
   <div ng-repeat="button in game.buttons" ng-show="button.active">
-    <button ng-click="game.button_actions[button.id](button.params)" class="btn btn-{{ button.class }}">{{ button.text }}</button>
+    <button ng-click="game.button_actions[button.id](button.params)" ng-disabled="button.disabled" class="btn btn-{{ button.class }}">{{ button.text }}</button>
   </div>
 </section>

@@ -4,10 +4,14 @@
 -icon_classes += ",'fa-rmb':icon == 'circuit'"
 -icon_classes += ",'fa-times-circle':icon == 'blocker'"
 -icon_classes += " }"
-.single-card
+.single-card(ng-class="{ 'active-card': active_card }")
     .card-upper
         .card-icons
-            i(ng-repeat="icon in card.icons" class="card-icon icon" ng-class=icon_classes)
+            i(
+                ng-repeat="icon in card.icons" 
+                class="card-icon icon" 
+                ng-class=icon_classes
+            )
         p.number {{ card.id }}
         p.name {{ card.name }}
     img(src="{{ card.images.main }}")

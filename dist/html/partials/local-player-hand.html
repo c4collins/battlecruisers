@@ -1,0 +1,14 @@
+
+<div ng-class="{ 'red-alert': player.status == 'RED ALERT', 'eliminated': player.status == 'ELIMINATED' }" class="local-play-area">
+  <div class="in-play">
+    <h5>In Play:</h5>
+    <single-card ng-repeat="card in player.cards.in_play"></single-card>
+    <h5>Recovery Zone:</h5>
+    <single-card ng-repeat="card in player.cards.recovery_zone"></single-card>
+    <h5>Discard Pile: 
+      <ng-pluralize count="player.cards.discard_pile.length" when="{ '0': 'No cards', 'one': '1 card', 'other': '{} cards' }"></ng-pluralize>
+    </h5>
+  </div>
+</div>
+<h5>Hand: </h5>
+<single-card ng-repeat="card in player.cards.hand" ng-mouseenter="active_card = true" ng-mouseleave="active_card = false" ng-click="game.userCardClick(player.id, $index, 'hand', 'play_card')" class="col_{{ 12 /  player.cards.hand.length }}"></single-card>

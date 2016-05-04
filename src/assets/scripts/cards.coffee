@@ -35,8 +35,8 @@ app.service 'cardService', [ '$http', 'playerService', ($http, playerService)->
         "22": {
             "main": (player_id) ->
                 console.debug("Player #{player_id} takes a token from all players, if they are not in the lead")
-                # console.log(playerService.whoHasMostTokens())
-                # console.log(player_id not in playerService.whoHasMostTokens())
+                console.log(playerService.whoHasMostTokens())
+                console.log(player_id not in playerService.whoHasMostTokens())
                 players = playerService.players
                 if player_id not in playerService.whoHasMostTokens()
                     for victim_id, victim of players
@@ -117,6 +117,12 @@ app.service 'cardService', [ '$http', 'playerService', ($http, playerService)->
 
     cardService.updateCardsInPlay = (cardsInPlay) ->
         cardService.cardsInPlay = cardsInPlay
+
+    cardService.numberOfCardsInPlay = ->
+        cards_played = 0
+        for card_number, count of cardService.cardsInPlay.cardNumberCounts
+            cards_played += count
+        return cards_played
     cardService.resetCardsInPlay = () ->
         cardService.cardsInPlay = {
             "show": false,

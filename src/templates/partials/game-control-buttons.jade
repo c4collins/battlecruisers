@@ -1,3 +1,10 @@
 section.col_12
-    div(ng-repeat="button in game.buttons" ng-show="button.active")
-        button(class="btn btn-{{ button.class }}" ng-click="game.button_actions[button.id](button.params)") {{ button.text }}
+    div(
+        ng-repeat="button in game.buttons" 
+        ng-show="button.active"
+    )
+        button(
+            class="btn btn-{{ button.class }}" 
+            ng-click="game.button_actions[button.id](button.params)" 
+            ng-disabled="button.disabled"
+        ) {{ button.text }}
