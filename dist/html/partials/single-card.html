@@ -1,17 +1,18 @@
 
-<div ng-class="{ 'active-card': active_card }" class="single-card">
-  <div class="card-upper">
-    <div class="card-icons"><i ng-repeat="icon in card.icons" ng-class="{ 'icon-user':icon == 'team','icon-th-list':icon == 'ammo','fa-rmb':icon == 'circuit','fa-times-circle':icon == 'blocker' }" class="card-icon icon"></i></div>
-    <p class="number">{{ card.id }}</p>
-    <p class="name">{{ card.name }}</p>
-  </div><img src="{{ card.images.main }}"/>
+<div ng-class="{'active-card': active_card }" class="single-card card-{{ card.id }}">
+  <div class="card-upper clearfix">
+    <div class="card-icons col_2"><i ng-repeat="icon in card.icons" ng-class="{ 'fa-group':icon == 'team','fa-th-list':icon == 'ammo','fa-rmb':icon == 'circuit','fa-times-circle':icon == 'blocker' }" class="fa card-icon icon icon-{{icon}}"></i></div>
+    <p class="name col_7">{{ card.name }}</p>
+    <p class="number col_3 player-{{ player.id }}">{{ card.id }}</p>
+  </div>
+  <div class="card-image"><img src="/static/images/cards/{{ card.id }}-{{ card.name | lowercase | slugify }}.png"/></div>
   <div class="card-lower">
     <div class="card-effects">
-      <p class="main-text">{{ card.effect.main }}</p>
+      <p ng-repeat="effect in card.effect.main" class="main-text">{{ effect }}</p>
     </div>
     <div class="card-effects">
       <p class="clash-title">Clash</p>
-      <p class="clash-text">{{ card.effect.conflict }} </p>
+      <p ng-repeat="effect in card.effect.conflict" class="clash-text">{{ effect }}</p>
     </div>
   </div>
 </div>

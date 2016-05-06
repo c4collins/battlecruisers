@@ -1,23 +1,24 @@
 -var icon_classes = "{"
--icon_classes += " 'icon-user':icon == 'team'"
--icon_classes += ",'icon-th-list':icon == 'ammo'"
+-icon_classes += " 'fa-group':icon == 'team'"
+-icon_classes += ",'fa-th-list':icon == 'ammo'"
 -icon_classes += ",'fa-rmb':icon == 'circuit'"
 -icon_classes += ",'fa-times-circle':icon == 'blocker'"
 -icon_classes += " }"
-.single-card(ng-class="{ 'active-card': active_card }")
-    .card-upper
-        .card-icons
+.single-card(ng-class="{'active-card': active_card }" class="card-{{ card.id }}")
+    .card-upper.clearfix
+        .card-icons.col_2
             i(
                 ng-repeat="icon in card.icons" 
-                class="card-icon icon" 
+                class="fa card-icon icon icon-{{icon}}" 
                 ng-class=icon_classes
             )
-        p.number {{ card.id }}
-        p.name {{ card.name }}
-    img(src="{{ card.images.main }}")
+        p.name.col_7 {{ card.name }}
+        p.number.col_3(class="player-{{ player.id }}") {{ card.id }}
+    .card-image
+        img(src="/static/images/cards/{{ card.id }}-{{ card.name | lowercase | slugify }}.png")
     .card-lower
-        .card-effects
-            p.main-text {{ card.effect.main }}
+        .card-effects.main-text
+            p(ng-repeat="effect in card.effect.main") {{ effect }}
         .card-effects
             p.clash-title Clash
-            p.clash-text {{ card.effect.conflict }} 
+            p.clash-text(ng-repeat="effect in card.effect.conflict") {{ effect }}

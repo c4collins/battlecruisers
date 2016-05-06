@@ -1,0 +1,111 @@
+@require "cards"
+
+body
+  background-attachment: fixed
+  background-image: url('/static/images/core/game-background.jpeg')
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: cover
+
+#game-intro
+  color: $cfe-game-contrast
+  margin-top: 10px
+  .core-content
+    background-color: $cfe-game-primary
+    border: $e-border-wide
+    border-radius: 25px
+    padding: 35px 55px
+  .lede
+    font-size: 1.8rem
+    margin: 0
+  .buttons
+    text-align: right
+
+#new-game-grid
+  width: auto
+  margin: 20px auto
+  border: $e-border-thin
+  button
+    border: 1px solid transparent
+    background-color: transparent
+    padding: 4px
+    &:hover
+      color: $cfe-game-contrast
+      border-color: $cfe-game-contrast
+  tr
+    border: none
+  td, th
+    padding: 2px
+    border: none
+    text-align: center
+    &.debug
+      background-color: $ce-game-alert
+      padding: 0
+    &.last
+      border: $e-border-thin
+      border-width: 0 1px 1px 0
+  th
+    min-width: 26px
+    &.amount
+      border-color: $cfe-game-contrast
+      border-style: solid
+      font-weight: 900
+      width: 26px
+    &.amount-row
+      border-width: 1px 0
+      &.last
+        border-right-width: 1px
+    &.amount-col
+      border-width: 0 1px
+      &.last
+        border-bottom-width: 1px
+    &.amount-top-left
+      border-width: 1px 0 0 1px
+
+.opponent-ship
+  background-image: url("/static/images/game/battlecruiser.png")
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: 100%
+.opponent-ship
+.local-ship
+  border: $e-border-primary
+  color: $cfe-game-contrast
+  .token-star
+  .player-id
+  .in-hand
+  .discard-pile
+  .recovery-zone
+    height: 50px
+    width: 50px
+    line-height: 2.7rem
+    font-size: 2.5rem
+    text-align: center
+    display: inline-block
+    text-shadow: 0 0 10px no-alpha($cfe-game-primary)
+  .player-id
+    border-radius: 10px
+    border: $e-border-primary
+  .token-star
+  .in-hand
+  .discard-pile
+  .recovery-zone
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: 100%
+  .token-star
+    background-image: url("/static/images/game/star.png")
+  .in-hand
+    background-image: url("/static/images/game/hand.png")
+  .discard-pile
+    background-image: url("/static/images/game/discard.png")
+  .recovery-zone
+    background-image: url("/static/images/game/recovery.png")
+
+
+.red-alert
+    background-color: red
+    border: 10px solid maroon
+.eliminated
+    background-color: silver
+    border: 10px solid gray

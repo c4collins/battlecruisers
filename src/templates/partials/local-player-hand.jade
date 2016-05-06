@@ -1,20 +1,25 @@
-div.local-play-area(ng-class="{ 'red-alert': player.status == 'RED ALERT', 'eliminated': player.status == 'ELIMINATED' }")
-  div.in-play
+div.in-play
+  div.col_4
     h5 In Play:
     single-card(ng-repeat="card in player.cards.in_play")
-    h5 Recovery Zone:
-    single-card(ng-repeat="card in player.cards.recovery_zone")
-    h5 Discard Pile: 
-      ng-pluralize(
-        count="player.cards.discard_pile.length" 
-        when="{ '0': 'No cards', 'one': '1 card', 'other': '{} cards' }"
-      )
-      
-h5 Hand: 
-single-card(
-  ng-repeat="card in player.cards.hand" 
-  class="col_{{ 12 /  player.cards.hand.length }}" 
-  ng-mouseenter="active_card = true" ng-mouseleave="active_card = false"
-  ng-click="game.userCardClick(player.id, $index, 'hand', 'play_card')"
-)
+    
+  div.col_8
+    h5 Hand: 
+    single-card(
+      ng-repeat="card in player.cards.hand" 
+      class="col_{{ 12 /  player.cards.hand.length }}" 
+      ng-mouseenter="active_card = true" ng-mouseleave="active_card = false"
+      ng-click="game.userCardClick(player.id, $index, 'hand', 'play_card')"
+    )
+    
+  div.col_12
+    div.col_9
+      h5 Recovery Zone:
+      single-card(ng-repeat="card in player.cards.recovery_zone")
+    div.col_3
+      h5 Discard Pile: 
+        ng-pluralize(
+          count="player.cards.discard_pile.length" 
+          when="{ '0': 'No cards', 'one': '1 card', 'other': '{} cards' }"
+        )
   

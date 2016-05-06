@@ -84,7 +84,7 @@ app.service 'cardService', [ '$http', 'playerService', ($http, playerService)->
         cardService.deck = deck
         return deck
 
-    cardService.handChoice = [3, 11, 13, 22, 31, 43]
+    cardService.handChoice = [3, 11, 13, 22, 31, 43] # Default deck is [3, 11, 13, 22, 31, 43]
     cardService.getHand = (card_numbers=cardService.handChoice) ->
         hand = []
         for card_number in card_numbers

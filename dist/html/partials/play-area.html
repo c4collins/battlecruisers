@@ -1,4 +1,103 @@
 
+<div id="game-intro" ng-show="game.phase == 0">
+  <div class="core-content">
+    <h5 class="col_12 lede">You are the commander of a Battlecruiser deep in space, locked in a deadly contest with the enemy over a crucial objective. Your decisions in the next few moments will decide your fate.</h5>
+    <div class="description col_7">
+      <p>Giant warships locked in battle...</p>
+      <p>Captain a mighty battlecruiser in the middle of a firefight as you try to gather 15 units of precious ore and get out — or die trying.</p>
+      <p>In Eminent Domain: Battlecruisers, you want to be the first to escape with 15 victory points, or be the last ship standing. Each round you and your opponents each play a card from your identical hands. If you play the same card as an opponent, you'll clash and bad things will happen! But if you manage to sneak a card through unhindered, then you'll reap the benefits.</p>
+      <p>Collect points or knock cards out of your opponents' hands. If you lose all of your cards, then you're out of the running. At the end of each round, check to see whether any player has won; if not, prepare to play another card!</p>
+    </div>
+    <div class="buttons col_5">
+      <p> <strong>Choose how many combatants are taking part in this battle.</strong></p>
+      <table id="new-game-grid" class="pull_right">
+        <tr>
+          <td></td>
+          <th colspan="7">Humans</th>
+        </tr>
+        <tr>
+          <th rowspan="7">AI</th>
+          <th class="amount amount-top-left"></th>
+          <th class="amount amount-row debug">0</th>
+          <th class="amount amount-row">1</th>
+          <th class="amount amount-row">2</th>
+          <th class="amount amount-row">3</th>
+          <th class="amount amount-row">4</th>
+          <th class="amount amount-row last">5</th>
+        </tr>
+        <tr>
+          <th class="amount amount-col">0</th>
+          <td class="null debug"></td>
+          <td class="null"></td>
+          <td class="null"></td>
+          <td class="button">
+            <button ng-click="game.button_actions['new_game']([0, 3])" ng-disabled="game.buttons['new_game'].disabled" class="btn btn-new-game">0/3</button>
+          </td>
+          <td class="button">
+            <button ng-click="game.button_actions['new_game']([0, 4])" ng-disabled="game.buttons['new_game'].disabled" class="btn btn-new-game">0/4</button>
+          </td>
+          <td class="button last">
+            <button ng-click="game.button_actions['new_game']([0, 5])" ng-disabled="game.buttons['new_game'].disabled" class="btn btn-new-game">0/5</button>
+          </td>
+        </tr>
+        <tr>
+          <th class="amount amount-col">1</th>
+          <td class="null debug"></td>
+          <td class="null"></td>
+          <td class="button">
+            <button ng-click="game.button_actions['new_game']([1, 2])" ng-disabled="game.buttons['new_game'].disabled" class="btn btn-new-game">1/2</button>
+          </td>
+          <td class="button">
+            <button ng-click="game.button_actions['new_game']([1, 3])" ng-disabled="game.buttons['new_game'].disabled" class="btn btn-new-game">1/3</button>
+          </td>
+          <td class="button last">
+            <button ng-click="game.button_actions['new_game']([1, 4])" ng-disabled="game.buttons['new_game'].disabled" class="btn btn-new-game">1/4</button>
+          </td>
+        </tr>
+        <tr>
+          <th class="amount amount-col">2</th>
+          <td class="null debug"></td>
+          <td class="button">
+            <button ng-click="game.button_actions['new_game']([2, 1])" ng-disabled="game.buttons['new_game'].disabled" class="btn btn-new-game">2/1</button>
+          </td>
+          <td class="button">
+            <button ng-click="game.button_actions['new_game']([2, 2])" ng-disabled="game.buttons['new_game'].disabled" class="btn btn-new-game">2/2</button>
+          </td>
+          <td class="button last">
+            <button ng-click="game.button_actions['new_game']([2, 3])" ng-disabled="game.buttons['new_game'].disabled" class="btn btn-new-game">2/3</button>
+          </td>
+        </tr>
+        <tr>
+          <th class="amount amount-col">3</th>
+          <td class="button debug">
+            <button ng-click="game.button_actions['new_game']([3, 0])" ng-disabled="game.buttons['new_game'].disabled" class="btn btn-new-game">3/0</button>
+          </td>
+          <td class="button">
+            <button ng-click="game.button_actions['new_game']([3, 1])" ng-disabled="game.buttons['new_game'].disabled" class="btn btn-new-game">3/1</button>
+          </td>
+          <td class="button last">
+            <button ng-click="game.button_actions['new_game']([3, 2])" ng-disabled="game.buttons['new_game'].disabled" class="btn btn-new-game">3/2</button>
+          </td>
+        </tr>
+        <tr>
+          <th class="amount amount-col last">4</th>
+          <td class="button debug">
+            <button ng-click="game.button_actions['new_game']([4, 0])" ng-disabled="game.buttons['new_game'].disabled" class="btn btn-new-game">4/0</button>
+          </td>
+          <td class="button last">
+            <button ng-click="game.button_actions['new_game']([4, 1])" ng-disabled="game.buttons['new_game'].disabled" class="btn btn-new-game">4/1</button>
+          </td>
+        </tr>
+        <tr>
+          <th class="amount amount-col debug last">5</th>
+          <td class="button debug last">
+            <button ng-click="game.button_actions['new_game']([5, 0])" ng-disabled="game.buttons['new_game'].disabled" class="btn btn-new-game">5/0</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
 <section class="col_12">
   <single-card ng-repeat="card in player.cards.recovery_zone" ng-show="cardService.cardsInPlay.show"> </single-card>
 </section>

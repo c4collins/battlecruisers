@@ -1,0 +1,121 @@
+table#new-game-grid.pull_right
+  tr
+    td
+    th(colspan="7") Humans
+  tr
+    th(rowspan="7") AI
+    th.amount.amount-top-left
+    th.amount.amount-row.debug 0
+    th.amount.amount-row 1
+    th.amount.amount-row 2
+    th.amount.amount-row 3
+    th.amount.amount-row 4
+    th.amount.amount-row.last 5
+  tr
+    th.amount.amount-col 0
+    td.null.debug
+    td.null
+    td.null
+    td.button
+      button(
+          class="btn btn-new-game" 
+          ng-click="game.button_actions['new_game']([0, 3])" 
+          ng-disabled="game.buttons['new_game'].disabled"
+      ) 0/3
+    td.button
+      button(
+          class="btn btn-new-game" 
+          ng-click="game.button_actions['new_game']([0, 4])" 
+          ng-disabled="game.buttons['new_game'].disabled"
+      ) 0/4
+    td.button.last
+      button(
+          class="btn btn-new-game" 
+          ng-click="game.button_actions['new_game']([0, 5])" 
+          ng-disabled="game.buttons['new_game'].disabled"
+      ) 0/5
+  tr
+    th.amount.amount-col 1
+    td.null.debug
+    td.null
+    td.button
+      button(
+          class="btn btn-new-game" 
+          ng-click="game.button_actions['new_game']([1, 2])" 
+          ng-disabled="game.buttons['new_game'].disabled"
+      ) 1/2
+    td.button
+      button(
+          class="btn btn-new-game" 
+          ng-click="game.button_actions['new_game']([1, 3])" 
+          ng-disabled="game.buttons['new_game'].disabled"
+      ) 1/3
+    td.button.last
+      button(
+          class="btn btn-new-game" 
+          ng-click="game.button_actions['new_game']([1, 4])" 
+          ng-disabled="game.buttons['new_game'].disabled"
+      ) 1/4
+  tr
+    th.amount.amount-col 2
+    td.null.debug
+    td.button
+      button(
+          class="btn btn-new-game" 
+          ng-click="game.button_actions['new_game']([2, 1])" 
+          ng-disabled="game.buttons['new_game'].disabled"
+      ) 2/1
+    td.button
+      button(
+          class="btn btn-new-game" 
+          ng-click="game.button_actions['new_game']([2, 2])" 
+          ng-disabled="game.buttons['new_game'].disabled"
+      ) 2/2
+    td.button.last
+      button(
+          class="btn btn-new-game" 
+          ng-click="game.button_actions['new_game']([2, 3])" 
+          ng-disabled="game.buttons['new_game'].disabled"
+      ) 2/3
+  tr
+    th.amount.amount-col 3
+    td.button.debug
+      button(
+          class="btn btn-new-game" 
+          ng-click="game.button_actions['new_game']([3, 0])" 
+          ng-disabled="game.buttons['new_game'].disabled"
+      ) 3/0
+    td.button
+      button(
+          class="btn btn-new-game" 
+          ng-click="game.button_actions['new_game']([3, 1])" 
+          ng-disabled="game.buttons['new_game'].disabled"
+      ) 3/1
+    td.button.last
+      button(
+          class="btn btn-new-game" 
+          ng-click="game.button_actions['new_game']([3, 2])" 
+          ng-disabled="game.buttons['new_game'].disabled"
+      ) 3/2
+  tr
+    th.amount.amount-col.last 4
+    td.button.debug
+      button(
+          class="btn btn-new-game" 
+          ng-click="game.button_actions['new_game']([4, 0])" 
+          ng-disabled="game.buttons['new_game'].disabled"
+      ) 4/0
+    td.button.last
+      button(
+          class="btn btn-new-game" 
+          ng-click="game.button_actions['new_game']([4, 1])" 
+          ng-disabled="game.buttons['new_game'].disabled"
+      ) 4/1
+  tr
+    th.amount.amount-col.debug.last 5
+    td.button.debug.last
+      button(
+          class="btn btn-new-game" 
+          ng-click="game.button_actions['new_game']([5, 0])" 
+          ng-disabled="game.buttons['new_game'].disabled"
+      ) 5/0

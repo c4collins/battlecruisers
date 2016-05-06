@@ -1,3 +1,18 @@
+#game-intro(ng-show="game.phase == 0")
+    .core-content
+            
+        h5.col_12.lede You are the commander of a Battlecruiser deep in space, locked in a deadly contest with the enemy over a crucial objective. Your decisions in the next few moments will decide your fate.
+        .description.col_7
+            p Giant warships locked in battle...
+            p Captain a mighty battlecruiser in the middle of a firefight as you try to gather 15 units of precious ore and get out — or die trying.
+            p In Eminent Domain: Battlecruisers, you want to be the first to escape with 15 victory points, or be the last ship standing. Each round you and your opponents each play a card from your identical hands. If you play the same card as an opponent, you'll clash and bad things will happen! But if you manage to sneak a card through unhindered, then you'll reap the benefits.
+            p Collect points or knock cards out of your opponents' hands. If you lose all of your cards, then you're out of the running. At the end of each round, check to see whether any player has won; if not, prepare to play another card!
+
+        .buttons.col_5
+            p 
+                strong Choose how many combatants are taking part in this battle.
+            include game-button-start.jade
+
 section.col_12
     single-card(
         ng-repeat="card in player.cards.recovery_zone"  

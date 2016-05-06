@@ -21,12 +21,13 @@ app.service 'playerService', [ ()->
       player.tokens = 0
       player.safe_turns = 0
       player.status = "NORMAL" # TODO Make this numerical (?)
-      player.view = 'remote' # TODO Make this numerical (?)
       if type == "ai"
-          player.type = 0
-          player.difficulty = 0
+          player.type = 0 # AI
+          player.view = 0 # Remote
+          player.difficulty = 0 # Random card played
       else if type == "human"
-          player.type = 1
+          player.type = 1 # Human
+          player.view = 1 # Local
       playerService.updatePlayer(id, player)
       playerService.numberOfPlayers += 1
       return player

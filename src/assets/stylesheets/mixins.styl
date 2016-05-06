@@ -1,0 +1,36 @@
+// Mixins and overrides
+vendor(prop, args)
+    -webkit-{prop} args
+    -moz-{prop} args
+    -ms-{prop} args
+    -o-{prop} args
+    {prop} args
+
+border-radius()
+    vendor('border-radius', arguments)
+
+box-shadow()
+    vendor('box-shadow', arguments)
+
+transition()
+    vendor('transition', arguments)
+
+transform()
+    vendor('transform', arguments)
+
+transform-origin()
+    vendor('transform-origin', arguments)
+
+user-select()
+    vendor('user-select', arguments)
+
+clearfix()
+    content ""
+    display table
+    clear both
+
+no-alpha(color)
+    new_color = #000
+    new_color = red(new_color, red(color))
+    new_color = green(new_color, green(color))
+    new_color = blue(new_color, blue(color))

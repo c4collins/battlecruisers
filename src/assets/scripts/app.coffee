@@ -19,25 +19,30 @@ GameController = ($http, $timeout, cardService, playerService) ->
     game.phase = 0
     ## Game Phases
     # 0 - Pre-Game / Game-Over
-    # 1 - Game Started
-    # 2 - Game Waiting for Player to play card
+    # 1 - Game Running
+    # 2 - Game Waiting for Player to choose card
 
     game.newGame = (players_array) ->
-        computer_players = players_array[0]
-        human_players = players_array[1]
+        game.computer_players = players_array[0]
+        game.human_players = players_array[1]
         game.turn_number = 0
         game.over = false
         game.phase = 1
 
-        for id in [1..human_players]
-            player = playerService.createNewPlayer(id, 'human')
-            player.cards = cardService.getHand()
-            playerService.updatePlayer(id, player)
-            console.log(player)
-        for id in [1+human_players..computer_players+human_players]
-            player = playerService.createNewPlayer(id, 'ai')
-            player.cards = cardService.getHand()
-            playerService.updatePlayer(id, player)
+        # console.log computer_players, human_players
+        if game.computer_players > 0
+            for id in [1..game.computer_players]
+                # console.log "Computer Player ", id
+                player = playerService.createNewPlayer(id, 'ai')
+                player.cards = cardService.getHand()
+                playerService.updatePlayer(id, player)
+        if game.human_players > 0
+            for id in [1+game.computer_players..game.human_players+game.computer_players]
+                # console.log "Human Player ", id
+                player = playerService.createNewPlayer(id, 'human')
+                player.cards = cardService.getHand()
+                playerService.updatePlayer(id, player)
+                # console.log(player)
 
         for id, player of playerService.players
             playerService.addTokensToPlayerPile(id, 1)
@@ -221,4 +226,8 @@ app.directive 'gameControlButtons', ->
         scope: true
     }
 
+app.filter 'slugify', ->
+    return (input) ->
+        output = input.replace(' ', '-')
+        return output
 return app

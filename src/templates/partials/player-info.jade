@@ -1,26 +1,32 @@
 section.col_12
-    div(
-        ng-repeat="player in playerService.players" 
-    )
-        div(ng-show="player.type == 0" class="col_3")
-            h5 Player {{ player.id }} 
-                span(ng-show="player.winner").
-                     - WINNER!
-            h6 {{ player.tokens }} Tokens
-            div.ai-play-area(ng-class="{ 'red-alert': player.status == 'RED ALERT', 'eliminated': player.status == 'ELIMINATED' }")
-                h5 In Play: 
-                single-card(ng-repeat="card in player.cards.in_play") 
-                h5 Recovery Zone: 
-                single-card(ng-repeat="card in player.cards.recovery_zone") 
-                h5 Cards in hand:
-                    strong {{ player.cards.hand.length }}
-                h5 Cards in discard: 
-                    strong {{ player.cards.discard_pile.length }}
+    div.core-content
+        div(
+            ng-repeat="player in playerService.players" 
+        )
+            div.opponent-ship(ng-show="player.view == 0" class="col_{{ 12 / game.computer_players }}" ng-class="{ 'red-alert': player.status == 'RED ALERT', 'eliminated': player.status == 'ELIMINATED' }")
+                div(ng-show="player.winner") WINNER!
+                div.col_12
+                    div.player-id(class="player-{{ player.id }}") {{ player.id }} 
+                    div.token-star {{ player.tokens }}
+                    div.in-hand {{ player.cards.hand.length }}
+                    div.recovery-zone {{ player.cards.recovery_zone.length }}
+                    div.discard-pile {{ player.cards.discard_pile.length }}
+                div.col_12
+                    div.col_6
+                        h5 In Play: 
+                        single-card(ng-repeat="card in player.cards.in_play") 
+                    div.col_6
+                        h5 Recovery Zone: 
+                        single-card(ng-repeat="card in player.cards.recovery_zone") 
+                
+                
+            div.local-ship(ng-show="player.view == 1" class="col_12" ng-class="{ 'red-alert': player.status == 'RED ALERT', 'eliminated': player.status == 'ELIMINATED' }")
+                div(ng-show="player.winner") WINNER!
+                div.col_12
+                    div.player-id(class="player-{{ player.id }}") {{ player.id }} 
+                    div.token-star {{ player.tokens }}
+                    div.in-hand {{ player.cards.hand.length }}
+                    div.recovery-zone {{ player.cards.recovery_zone.length }}
+                    div.discard-pile {{ player.cards.discard_pile.length }}
+                include local-player-hand.jade
             
-        div(ng-show="player.type == 1" class="col_6")
-            h5 Player {{ player.id }} 
-                span(ng-show="player.winner").
-                     - WINNER!
-            h6 {{ player.tokens }} Tokens
-            include local-player-hand.jade
-        

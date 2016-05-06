@@ -2,19 +2,22 @@ doctype html
 html(lang="en-us")
     head
         base(href="/")
-        title BattleCruisers - v0.0.1
-        link(rel="stylesheet" type="text/css" href="static/libs/html5-kickstart/css/kickstart.css" media="all")
-        link(rel="stylesheet" type="text/css" href="static/libs/html5-kickstart/style.css" media="all")
-        link(rel="stylesheet" type="text/css" href="static/stylesheets/main.css")
+        title BattleCruisers - v0.5.0
         
         script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
-        script(src="static/libs/html5-kickstart/js/kickstart.js")
+        //- script(src="static/libs/html5-kickstart/js/kickstart.js")
         script(src="static/libs/angular/angular.min.js")
         script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js")
         script(src="static/scripts/all.min.js")
+        
+        link(rel='stylesheet' type="text/css" media="all" href='https://fonts.googleapis.com/css?family=Rubik:400,900,700,500,300')
+        link(rel="stylesheet" type="text/css" media="all" href="static/libs/html5-kickstart/css/kickstart-grid.css")
+        link(rel="stylesheet" type="text/css" media="all" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css")
+        //- link(rel="stylesheet" type="text/css" href="static/libs/html5-kickstart/style.css" media="all")
+        link(rel="stylesheet" type="text/css" href="static/stylesheets/main.css")
 
     body(ng-app="battlecruisers" ng-controller="GameController as game")
         game-header
-        game-control-buttons
         play-area
+        game-control-buttons
         player-info

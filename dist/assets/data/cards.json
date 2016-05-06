@@ -11,14 +11,22 @@
             "id":"3",
             "name":"Shields",
             "effect":{
-                "main": "You ignore opponents' Main effects this round and next round.  If this is your only card at the end of a round, discard it.",
-                "conflict": "No effect."
+                "main": ["You ignore opponents' Main effects this round and next round.  If this is your only card at the end of a round, discard it."],
+                "conflict": ["No effect."]
             },
             "icons": ["circuit", "blocker"]
         },
     "4":{
             "id":"4",
-            "name":"Cloaking Device"
+            "name":"Cloaking Device",
+            "effect": {
+                "main": [
+                    "If you have a card with the [Bullets?] in you Recovery Zone, choose an opponent to discard 1 card.",
+                    "If you have 2 or fewer cards in hand, ignore opponents' Main effects this round."
+                ],
+                "conflict": ["No effect"]
+            },
+            "icons": ["circuit", "blocker"]
         },
     "5":{
             "id":"5",
@@ -44,8 +52,8 @@
             "id":"11",
             "name":"Reckless Pilot",
             "effect":{
-                "main": "Discard 1 card.  Gain 4*.",
-                "conflict": "Discard this card or one card from your hand."
+                "main": ["Discard 1 card.  Gain 4*."],
+                "conflict": ["Discard this card or one card from your hand."]
             },
             "icons": ["team"]
         },
@@ -57,8 +65,8 @@
             "id":"13",
             "name":"Captain",
             "effect":{
-                "main": "Gain 3*.",
-                "conflict": "Gain 3*, then lose 1* for every player who Clashed with this card, including yourself."
+                "main": ["Gain 3*."],
+                "conflict": ["Gain 3*, then lose 1* for every player who Clashed with this card, including yourself."]
             },
             "icons": ["team", "ammo"]
         },
@@ -86,8 +94,8 @@
             "id":"22",
             "name":"Special Ops",
             "effect":{
-                "main": "Take 1* from each opponent unless you are the player with the single most *.",
-                "conflict": "No effect"
+                "main": ["Take 1* from each opponent unless you are the player with the single most *."],
+                "conflict": ["No effect"]
             },
             "icons": ["team", "ammo"]
         },
@@ -111,8 +119,8 @@
             "id":"31",
             "name":"Laser Cannons",
             "effect":{
-                "main": "Each opponent discards one card.",
-                "conflict": "Discard one card."
+                "main": ["Each opponent discards one card."],
+                "conflict": ["Discard one card."]
             },
             "icons": ["ammo"]
         },
@@ -148,8 +156,11 @@
             "id":"43",
             "name":"Escape Pod",
             "effect":{
-                "main": "Gain 1*. If you have no cards in your hand, return up to three cards of your choice from your discard pile to your hand.",
-                "conflict": "Discard this card."
+                "main": [
+                    "Gain 1*.",
+                    "If you have no cards in your hand, return up to three cards of your choice from your discard pile to your hand."
+                ],
+                "conflict": ["Discard this card."]
             },
             "icons": ["circuit", "team"]
         },
